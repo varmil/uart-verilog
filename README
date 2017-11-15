@@ -1,10 +1,12 @@
 Simple verilog UART.
 
-A simple UART for use in an FPGA as a debug engine.  Requires a 50MHz input
-clock that gets divided into clock enables for a 16x oversampling receiver
+Requires a 50MHz input clock that gets divided into 
+clock enables for a 16x oversampling receiver
 clock enable and 115200 baud transmission clock enable.
 
 Icarus verilog testbench verifies that each byte can be sent correctly, but
 does not do anything with spacing between bytes.
 
-Licensed under GPLv2.
+### use with DE-10 Lite
+
+![image](https://user-images.githubusercontent.com/6558862/32832009-7a0940a0-ca3d-11e7-9485-fc3430176367.png)
