@@ -126,7 +126,7 @@ module DE10_LITE_Golden_Top(
 //=======================================================
 //  REG/WIRE declarations
 //=======================================================
-wire tx_busy;
+wire txBusy;
 wire rdy;
 wire [7:0] rxData;
 
@@ -143,7 +143,7 @@ uart test_uart(.din(data),
 	       .wr_en(writeEN),
 	       .clk_50m(MAX10_CLK1_50),
 	       .tx(GPIO[25]),
-	       .tx_busy(tx_busy),
+	       .tx_busy(txBusy),
 	       .rx(GPIO[24]),
 	       .rdy(rdy),
 	       .rdy_clr(rdyClr),
@@ -152,14 +152,13 @@ uart test_uart(.din(data),
 assign HEX0 = rxData;
 
 always @(posedge MAX10_CLK1_50) begin
-	if (tx_busy)
+	if (txBusy)
 		writeEN <= 0;
 	else begin
 		if (rdy) begin
+			rdyClr <= 1;
 			writeEN <= 1;
 			data <= rxData;
-
-			rdyClr <= 1;
 		end
 	end
 
