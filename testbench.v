@@ -28,7 +28,7 @@ uart test_uart(.din(data),
 	       .dout(rxdata));
 
 initial begin
-	$dumpfile("uart.vcd");
+	// $dumpfile("uart.vcd");
 	$dumpvars(0, uart_tx_test);
 	enable <= 1'b1;
 	#2 enable <= 1'b0;

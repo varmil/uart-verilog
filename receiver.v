@@ -1,9 +1,11 @@
-module receiver(input wire rx,
-		output reg rdy,
-		input wire rdy_clr,
-		input wire clk_50m,
-		input wire clken,
-		output reg [7:0] data);
+module receiver(
+	input wire rx,
+	input wire rdy_clr,
+	input wire clk_50m,
+	input wire clken,
+	output reg rdy,
+	output reg [7:0] data
+);
 
 initial begin
 	rdy = 0;
